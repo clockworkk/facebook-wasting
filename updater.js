@@ -16,9 +16,8 @@ function update(){
 
   var seconds = Math.floor((milli / 1000) % 60);
   var minutes = Math.floor((milli / (60 * 1000)) % 60);
-  var hours = Math.floor((milli / (3600 * 1000)) % 60);
-  
-  timer.innerHTML = hours  + ":" + minutes + ":" + seconds;
+  var hours = Math.floor((milli / (1000*60*60) )%24);
+  view.update_badge(minutes + hours*60 );
+
+  timer.innerHTML = hours + ":" + minutes + ":" + seconds;
 }
-
-

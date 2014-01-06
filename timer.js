@@ -44,7 +44,16 @@ function get_time(){
   }
 }
 
-function timer()
-{
-  window.seconds_wasted++;
+setInterval(calculate_badge, 30000);
+calculate_badge();
+
+function calculate_badge(){
+   update_badge(Math.floor((get_time() / (60 * 1000)) % 60));
+}
+
+function update_badge(minutes){
+  console.log(minutes);
+  details = new Object();
+  details.text = "" + minutes
+  chrome.browserAction.setBadgeText(details);
 }
