@@ -6,7 +6,8 @@
   "version": "1.0",
 
   "permissions": [
-    "tabs"
+    "tabs",
+    "idle"
   ],
   "browser_action": {
     "default_icon": "icon.png",
