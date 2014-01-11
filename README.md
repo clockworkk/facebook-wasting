@@ -1,4 +1,4 @@
 facebook-wasting
 ================
 
-Tracks time wasted on Facebook in the last 24 hours
+Tracks time wasted on facebook
