@@ -69,7 +69,7 @@ setInterval(calculate_badge, 30000);
 calculate_badge();
 
 function calculate_badge(){
-   update_badge(Math.floor(get_time() / (60 * 1000)));
+   update_badge( Math.floor(get_time() / (60*1000)) );
 }
 
 function update_badge(minutes){
