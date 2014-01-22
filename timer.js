@@ -1,10 +1,17 @@
-var previous_total = [0,0];
-var time_opened = new Array(2);
-var open = [0,0];
 var urls = [
   ["*://*.facebook.com/*", "Facebook"],
-  ["*://*.twitter.com/*", "Twitter"]
+  ["*://*.twitter.com/*", "Twitter"],
+  ["*://*.reddit.com/*", "Reddit"]
 ]
+var open = new Array(urls.length)
+var time_opened = new Array(urls.length);
+var previous_total = new Array(urls.length);
+
+for(i=0; i<urls.length; i++){
+  previous_total[i] = 0;
+  open[i] = 0
+}
+
 
 
 chrome.tabs.onUpdated.addListener( function callback( tabId, changeInfo, tab) {
@@ -45,10 +52,10 @@ function tabs_aysnch_call(index, url){
   query.active = true
   query.url = url;
   chrome.tabs.query(query, function(tabs){
-    if( tabs.length > 0){ // Facebook is open somewhere)
+    if( tabs.length > 0){ // Site is open somewhere)
       facebook_opened(index);
     }
-    if( tabs.length == 0){ // Facebook is not open
+    if( tabs.length == 0){ // Site is not open
       facebook_closed(index);
     }
   })
@@ -88,15 +95,16 @@ calculate_badge();
 function calculate_badge(){
   total = 0
   for(index = 0;  index < urls.length; index++){
-    // console.log(urls[index][0], index, get_time(index))
+    //console.log(urls[index][0], index, get_time(index))
     total += get_time(index);
   }    
+  //console.log("The supposed total time", total)
 
   // For each url
     // total + =get time ( their index )
   // update_badge(total)
 
-   update_badge( Math.floor(get_time(0) / (60*1000)) );
+   update_badge( Math.floor(total/ (60*1000)) );
 }
 
 function update_badge(minutes){

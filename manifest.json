@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "Facebook Time Wasting Tracker",
-  "description": "This extension tracks how much time has been wasted with facebook open.",
-  "version": "1.0",
+  "name": "Time Wasted",
+  "description": "This extension tracks how much time has been wasted with facebook and twitter open.",
+  "version": "1.1",
 
   "permissions": [
     "tabs",
