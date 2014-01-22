@@ -88,15 +88,16 @@ calculate_badge();
 function calculate_badge(){
   total = 0
   for(index = 0;  index < urls.length; index++){
-    // console.log(urls[index][0], index, get_time(index))
+    //console.log(urls[index][0], index, get_time(index))
     total += get_time(index);
   }    
+  //console.log("The supposed total time", total)
 
   // For each url
     // total + =get time ( their index )
   // update_badge(total)
 
-   update_badge( Math.floor(get_time(0) / (60*1000)) );
+   update_badge( Math.floor(total/ (60*1000)) );
 }
 
 function update_badge(minutes){
