@@ -1,4 +1,1 @@
-facebook-wasting
-================
-
-Tracks time wasted on facebook
+Tracks time wasted on various websites online
